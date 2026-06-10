@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>VORAC Project - Ramindu Weniwelkola</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        
+        <style>
+            /* Floating Back Button - Anchored Top Left */
+            #back-home-btn {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 4em;
+                height: 4em;
+                line-height: 4em;
+                text-align: center;
+                font-size: 1.2em;
+                color: #f56a6a;
+                border-bottom: none;
+                z-index: 10001;
+                background-color: rgba(255, 255, 255, 0.9); 
+                border-bottom-right-radius: 0.5em;
+                box-shadow: 2px 2px 5px rgba(0,0,0,0.05); /* Slight shadow to lift it off the sidebar */
+                transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            }
+            
+            #back-home-btn:hover {
+                color: #7f888f;
+                background-color: #ffffff;
+            }
+            
+            /* Adjusts sizing for smaller mobile screens */
+            @media screen and (max-width: 736px) {
+                #back-home-btn {
+                    height: 3.5em;
+                    width: 3.5em;
+                    line-height: 3.5em;
+                }
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <a href="index.html" id="back-home-btn" title="Back to Home">
+            <span class="icon solid fa-arrow-left"></span>
+        </a>
+
+        <div id="wrapper">
+
+                <div id="main">
+                        <div class="inner">
+
+                            <!-- <header id="header">
+                                    <a href="index.html" class="logo"><strong>Project Report</strong></a>
+                                </header> -->
+
+                            <section>
+                                    <header class="main">
+                                        <h1 style="font-size: 3.0em; line-height: 1.3; margin-bottom: 0.5em;">Vision-based redundant robotic manipulator for accessing confined spaces</h1>
+                                    </header>
+
+                                    <span class="image main" style="display: flex; justify-content: center; margin-bottom: 3em;">
+                                        <img src="imgs_int/vorac_overview.png" alt="VORAC Manipulator in Confined Space" style="width: 70%; border-radius: 0.3em;" />
+                                    </span>
+
+                                    <p>Accessing confined and restricted spaces—such as storage tanks, process vessels, and aircraft wings—presents significant safety hazards and operational challenges for human workers due to limited entry points and poor ventilation. To address these challenges, we developed <strong>VORAC</strong>: a modular redundant robotic manipulator tailored to navigate unstructured, tight environments.</p> 
+                                    
+                                    <p>Unlike traditional drone or crawler systems, VORAC is designed to provide high precision, repeatability, and extended operational periods. Crucially, the system features a unique internal tubular access path, allowing operators to safely deliver necessary utilities—such as cleaning water jets, maintenance welding torches, or inspection tools—directly from the base to the end-effector (EE) inside the confined space.</p>
+
+                                    <hr class="major" />
+
+                                    <h2>System Overview & Hardware Prototype</h2>
+                                    
+                                    <span class="image fit" style="margin-bottom: 2em;">
+                                        <img src="imgs_int/vorac_parts.png" alt="VORAC Hardware Nomenclature" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+
+                                    <p>The VORAC manipulator was built as a reconfigurable, modular system. The prototype was developed to have an approximate reach of 1 meter and an inner access path diameter of 30 mm to accommodate various payload utilities, while maintaining a slim outer profile of less than 10 cm. The structural links were fabricated from 1 mm laser-cut aluminum sheets folded into irregular pentagon cross-sections to ensure a lightweight but robust assembly capable of handling a 500 g payload at the end-effector.</p>
+                                    
+                                    <span class="image right" style="max-width: 62%; margin-left: 2em;">
+                                        <img src="imgs_int/vorac_act_comps.png" alt="Hollow Rotary Actuator Components" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+
+                                    <p>To actuate the modular links without obstructing the internal passageway, custom hollow rotary actuators were engineered. These mechanisms utilize planetary geared stepper motors integrated with thin-section deep-groove ball bearings. This specific bearing choice allowed the system to handle multi-directional loads while keeping mass minimal. The fixed base utilizes a prismatic joint driven by a lead screw and stepper motor set on parallel guide rails to smoothly translate the entire manipulator into the workspace.</p>
+
+                                    <hr class="major" style="clear: both;" />
+
+                                    <h2>Kinematic Architecture & Path Planning</h2>
+                                    
+                                    <span class="image fit" style="margin-bottom: 2em;">
+                                        <img src="imgs_int/vorac_kinematics.png" alt="VORAC Kinematic Configuration" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+
+                                    <p>The manipulator features a 7 Degree-of-Freedom (DOF) configuration, designed specifically to maneuver through highly constrained entry points. The kinematic chain consists of:</p>
+                                    <ul>
+                                        <li>One prismatic joint that translates the robot straight into the confined space.</li>
+                                        <li>One initial twisting joint.</li>
+                                        <li>Five Oblique Swivel (OS) joints, which are rotational joints set at a 45-degree inclined angle with alternating orientations to produce complex twisting motions.</li>
+                                    </ul>
+
+                                    <p>Due to the constrained nature of the environment, computing the inverse kinematics (determining how to angle each joint to reach a target) requires collision avoidance. To achieve this, the system relies on a Particle Swarm Optimization (PSO) based path planning algorithm. The algorithm computes the required joint sequences by optimizing the manipulator's shape to fit along a safe, predetermined Bezier curve. During operation, the OS joints are strategically kept inactive until they have fully passed through the narrow entry point to prevent structural collisions.</p>
+
+                                    <hr class="major" />
+
+                                    <h2>Vision System & Environmental Perception</h2>
+                                    
+                                    <p>Navigation relies heavily on environmental perception, achieved through an RGB-D (depth) camera mounted directly at the end-effector. This allows the robot to acquire dense 3D point cloud data even in poorly lit environments. To guide the path planning algorithms, two specific vision-based geometric modeling pipelines were developed:</p>
+
+                                    <h3 style="margin-top: 1.5em;">1. Circular Opening Detection Methodology</h3>
+                                    <span class="image fit" style="margin-bottom: 1.5em;">
+                                        <img src="imgs_int/vorac_circ_op_detect.png" alt="Circular Opening Detection Methodology" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+                                    <ul>
+                                        <li><strong>Circular Opening Detection:</strong> Used to navigate through internal planar walls (such as aircraft fuel tank baffles). The algorithm isolates the nearest wall using RANSAC plane-fitting, projects the data into 2D, and uses a grid-based circularity search to calculate the exact center of the opening to use as a navigation waypoint.</li>
+                                    </ul>
+
+                                    <h3 style="margin-top: 1.5em;">2. Pipe Bend Geometric Modeling Methodology</h3>
+                                    <span class="image fit" style="margin-bottom: 1.5em;">
+                                        <img src="imgs_int/vorac_pipe_bend_pipeline.png" alt="Pipe Bend Pipeline Reconstruction" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+                                    <ul>
+                                        <li><strong>Pipe Bend Geometric Modeling:</strong> Used to navigate curved tubular ducts. A PSO-based algorithm fits a sequence of geometric units to the acquired point cloud to recreate the internal geometry of the pipe.</li>
+                                    </ul>
+
+                                    <h3 style="margin-top: 1.5em;">3. Feature Extraction Results</h3>
+                                    <span class="image fit" style="margin-bottom: 1.5em;">
+                                        <img src="imgs_int/vorac_pcd_pross_results.png" alt="Vision Pipeline Results" style="border-radius: 0.3em; border: 1px solid #efefef;" />
+                                    </span>
+                                    <p>Tests showed the circular opening algorithm computes the mean radius with an average accuracy of 94%. Experimental validation across varying bend conditions demonstrated highly accurate modeling with only a 1-2% Mean Absolute Percentage Error (MAPE).</p>
+
+                                    <hr class="major" />
+
+                                    <h2>Control Architecture & Experimental Validation</h2>
+
+                                    <!-- <span class="image fit" style="max-width: 80%; justify-content: center;"> -->
+									<span class="image main" style="display: flex; justify-content: center; margin-bottom: 3em;">
+                                        <img src="imgs_int/vorac_control_architecture.png" alt="VORAC Dual Control Architecture" style="border-radius: 0.3em; border: 1px solid #efefef; max-width: 80%;" />
+                                    </span>
+
+                                    <p>The system utilizes a dual-controller hierarchy to manage the complex computational loads. A PC acts as the high-level controller, processing point cloud data from the depth camera, calculating the PSO path planning, and providing a Graphical User Interface (GUI) where operators can simulate the planned motion before execution. An Arduino Mega serves as the low-level controller, receiving serial commands from the PC to drive the individual actuators. The robot supports fully autonomous vision-based navigation, semi-autonomous sequential waypoint navigation, and direct manual control.</p>
+
+                                    <p>During final experimental validation, the end-to-end vision and navigation pipeline was tested on the physical prototype in an emulated confined space. The system successfully tracked its reference spline trajectory with an average end-effector deviation of just 0.72 cm in simulation, and 2.24 cm during live physical execution.</p>
+
+                                    <h3 style="margin-top: 2em;">Final Results & Demonstration</h3>
+                                    <span class="image main" style="margin-top: 1em;">
+                                        <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em;">
+                                            <source src="vids/vorac_full_mod.mp4" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </span>
+
+                                </section>
+
+                        </div>
+                    </div>
+
+                <div id="sidebar">
+                        <div class="inner">
+
+                            <section id="profile" style="text-align: center; padding: 0.5em 0 1em 0;">
+                                <img src="images/ME.jpeg" alt="Ramindu Weniwelkola" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; display: block; margin: 0 auto 1.5em auto; border: 3px solid #f56a6a;" />
+                                
+                                <h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">Ramindu Weniwelkola</h2>
+                                <p style="font-size: 0.9em; line-height: 1.3; margin-bottom: 1em; font-weight: 600;">B.Sc. Eng (Hons) in Mechanical Engineering<br><span style="font-weight: 300; font-size: 0.9em;">Specialized in Mechatronics</span></p>
+                                
+                                <p style="font-size: 0.85em; line-height: 1.5; margin-bottom: 1em; text-align: left; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
+                                    <strong>Email:</strong> raminduw@uom.lk<br>
+                                    <strong>Phone:</strong> (+94) 772322298
+                                </p>
+                            
+                                <div style="text-align: left; padding-top: 0.5em;">
+                                    <h3 style="font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8em; color: #7f888f;">Projects</h3>
+                                    <ul style="list-style: none; padding-left: 0; line-height: 1.4;">
+                                        <li style="margin-bottom: 0.5em;"><a href="index.html#interdum" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Vision-based redundant robotic manipulator for accessing confined spaces</a></li>
+                                        <li style="margin-bottom: 0.5em;"><a href="index.html#nulla" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Automated Multi-Pass 3D Laser Scanning System</a></li>
+                                        <li style="margin-bottom: 0.5em;"><a href="index.html#tempus" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Design and Development of Rail Mounted 5DOF Robot Arm for Storage</a></li>
+                                        <li style="margin-bottom: 0.5em;"><a href="index.html#sedetiam" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Design and Simulation of a MEMS Based platform for Microscope</a></li>
+                                        <li style="margin-bottom: 0.5em;"><a href="index.html#feugiat" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Smart Environment Monitoring Station</a></li>
+                                        <li style="margin-bottom: 1.5em;"><a href="index.html#amet" style="font-size: 0.8em; text-decoration: none; font-weight: 600; border-bottom: none;">• Development of a Smart Factory Automation System</a></li>
+                                        
+                                        <li><a href="index.html#publications" style="font-size: 0.85em; text-decoration: none; font-weight: 700; border-bottom: none; color: #f56a6a;">→ View Publications</a></li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <footer id="footer">
+                                    <p class="copyright">&copy; Ramindu Weniwelkola. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                            </footer>
+
+                        </div>
+                    </div>
+
+            </div>
+
+        <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
