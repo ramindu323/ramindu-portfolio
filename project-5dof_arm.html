@@ -68,7 +68,7 @@
 										</video>
 									</span>
 
-									<p>This project focuses on the end-to-end design and development of a custom 5-Degree-of-Freedom (DOF) robotic manipulator, physically mounted on a motorized linear rail to expand its operational workspace. The system is engineered as a fully integrated smart automation platform. It combines optimized mechanical hardware, a deep learning-based computer vision pipeline for autonomous object detection, and a cloud-connected mobile application that interfaces with a real-time digital twin of the robot for remote monitoring and teleoperation.</p>
+									<p style="text-align: justify;">This project focuses on the end-to-end design and development of a custom 5-Degree-of-Freedom (DOF) robotic manipulator, physically mounted on a motorized linear rail to expand its operational workspace. The system is engineered as a fully integrated smart automation platform. It combines optimized mechanical hardware, a deep learning-based computer vision pipeline for autonomous object detection, and a cloud-connected mobile application that interfaces with a real-time digital twin of the robot for remote monitoring and teleoperation.</p>
 
 									<hr class="major" />
 
@@ -79,14 +79,14 @@
                                             <img src="imgs_5DOF/link_length_optimization.jpg" alt="Link Length Optimization via PSO" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 1em;">The mechanical architecture was designed for warehouse picking applications. To maximize the end-effector's reach without compromising structural stability, the individual link lengths were optimized using a <strong>Particle Swarm Optimization (PSO)</strong> based algorithm. This ensured the defined workspace was fully accessible with desired orientations, while mathematically minimizing the required holding torques for the base actuators.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">The mechanical architecture was designed for warehouse picking applications. To maximize the end-effector's reach without compromising structural stability, the individual link lengths were optimized using a <strong>Particle Swarm Optimization (PSO)</strong> based algorithm. This ensured the defined workspace was fully accessible with desired orientations, while mathematically minimizing the required holding torques for the base actuators.</p>
                                         </div>
                                     </div>
 
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 50%; min-width: 300px; order: 1;">
-                                            <p style="margin-bottom: 1em;">Prior to physical fabrication, detailed Multi-Body Dynamics (MBD) and Finite Element Analysis (FEA) were performed. Stress and topology analyses guided the final design, while torque analyses dictated the motor selection.</p>
-                                            <p style="margin-bottom: 0;">The entire manipulator assembly is mounted on a linear lead-screw rail mechanism, effectively providing a macro-scale 6th axis of mobility to service multiple storage racks along a horizontal plane.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">Prior to physical fabrication, detailed Multi-Body Dynamics (MBD) and Finite Element Analysis (FEA) were performed. Stress and topology analyses guided the final design, while torque analyses dictated the motor selection.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">The entire manipulator assembly is mounted on a linear lead-screw rail mechanism, effectively providing a macro-scale 6th axis of mobility to service multiple storage racks along a horizontal plane.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
@@ -104,13 +104,13 @@
                                             <img src="imgs_5DOF/Kinematic%20Diagram.jpg" alt="Kinematic DH Parameter Diagram" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 0;">A comprehensive mathematical model of the robot was derived using geometric methods, establishing the forward and inverse kinematic frameworks necessary for the spatial positioning of the end-effector.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">A comprehensive mathematical model of the robot was derived using geometric methods, establishing the forward and inverse kinematic frameworks necessary for the spatial positioning of the end-effector.</p>
                                         </div>
                                     </div>
 
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 50%; min-width: 300px; order: 1;">
-                                            <p style="margin-bottom: 0;">To safely validate motion planning algorithms, a real-time digital twin of the manipulator was developed. This simulation environment seamlessly visualizes the calculated Inverse Kinematics (IK) joint angles and physical constraints, allowing operators to verify trajectories before they are executed on the physical hardware.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">To safely validate motion planning algorithms, a real-time digital twin of the manipulator was developed. This simulation environment seamlessly visualizes the calculated Inverse Kinematics (IK) joint angles and physical constraints, allowing operators to verify trajectories before they are executed on the physical hardware.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
@@ -123,7 +123,7 @@
 
 									<h2>Vision System & Deep Learning Pipeline</h2>
                                     
-                                    <p>Autonomous object retrieval requires a robust environmental perception pipeline to dynamically locate unorganized storage containers and map them accurately into the robot's coordinate space.</p>
+                                    <p style="text-align: justify;">Autonomous object retrieval requires a robust environmental perception pipeline to dynamically locate unorganized storage containers and map them accurately into the robot's coordinate space.</p>
 
                                     <div style="display: flex; flex-direction: column; gap: 2.5em; margin-bottom: 2em;">
                                         
@@ -133,14 +133,14 @@
                                             </span>
                                             <div style="flex: 1 1 50%; min-width: 300px;">
                                                 <h3 style="font-size: 1.2em; margin-bottom: 0.5em;">Workspace Definition</h3>
-                                                <p style="margin-bottom: 0;">The vision pipeline initiates by isolating the operational workspace. A camera calibration framework detects the corner markers of the storage plane to establish a foundational reference grid.</p>
+                                                <p style="margin-bottom: 0; text-align: justify;">The vision pipeline initiates by isolating the operational workspace. A camera calibration framework detects the corner markers of the storage plane to establish a foundational reference grid.</p>
                                             </div>
                                         </div>
 
                                         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em;">
                                             <div style="flex: 1 1 50%; min-width: 300px; order: 1;">
                                                 <h3 style="font-size: 1.2em; margin-bottom: 0.5em;">Object Detection via YOLOv8</h3>
-                                                <p style="margin-bottom: 0;">A custom dataset was trained using the YOLOv8 segmentation model. The inference model provides real-time 2D bounding box detection and semantic segmentation of the target storage containers on the workspace surface.</p>
+                                                <p style="margin-bottom: 0; text-align: justify;">A custom dataset was trained using the YOLOv8 segmentation model. The inference model provides real-time 2D bounding box detection and semantic segmentation of the target storage containers on the workspace surface.</p>
                                             </div>
                                             <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                                 <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
@@ -156,15 +156,15 @@
                                             </span>
                                             <div style="flex: 1 1 50%; min-width: 300px;">
                                                 <h3 style="font-size: 1.2em; margin-bottom: 0.5em;">Spatial Mapping & Orientation</h3>
-                                                <p style="margin-bottom: 1em;">To calculate physical grasping coordinates from a single monocular camera feed, the system employs Perspective Transformation (Homography). The 2D pixel coordinates of the detected containers are mathematically projected into the robot's real-world 3D base coordinate frame.</p>
-                                                <p style="margin-bottom: 0;">Simultaneously, geometric contour analysis calculates the yaw orientation of each container, ensuring the end-effector aligns with the object for secure pick-and-place maneuver.</p>
+                                                <p style="margin-bottom: 1em; text-align: justify;">To calculate physical grasping coordinates from a single monocular camera feed, the system employs Perspective Transformation (Homography). The 2D pixel coordinates of the detected containers are mathematically projected into the robot's real-world 3D base coordinate frame.</p>
+                                                <p style="margin-bottom: 0; text-align: justify;">Simultaneously, geometric contour analysis calculates the yaw orientation of each container, ensuring the end-effector aligns with the object for secure pick-and-place maneuver.</p>
                                             </div>
                                         </div>
 
                                         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em;">
                                             <div style="flex: 1 1 50%; min-width: 300px; order: 1;">
                                                 <h3 style="font-size: 1.2em; margin-bottom: 0.5em;">Digital Twin Integration</h3>
-                                                <p style="margin-bottom: 0;">Once detected and mapped, the physical target containers are dynamically instantiated inside the Open3D digital twin. This creates a synchronized virtual environment where the system can visualize its trajectories before interacting with the real world.</p>
+                                                <p style="margin-bottom: 0; text-align: justify;">Once detected and mapped, the physical target containers are dynamically instantiated inside the Open3D digital twin. This creates a synchronized virtual environment where the system can visualize its trajectories before interacting with the real world.</p>
                                             </div>
                                             <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                                 <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
@@ -184,15 +184,15 @@
                                             <img src="imgs_5DOF/communication_diagram.jpg" alt="Communication Architecture Diagram" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 1.5em;">Teleoperation and system monitoring are executed via a custom-built mobile application, developed in Python using the Flutter-based <strong>Flet</strong> framework with cross-platform compatibility.</p>
-                                            <p style="margin-bottom: 0;">The application utilizes the Google Firebase real-time database as its central communication hub. Because the backend relies on Firestore's real-time listeners, the physical robot, the Open3D digital twin, and the mobile GUI remain highly synchronized.</p>
+                                            <p style="margin-bottom: 1.5em; text-align: justify;">Teleoperation and system monitoring are executed via a custom-built mobile application, developed in Python using the Flutter-based <strong>Flet</strong> framework with cross-platform compatibility.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">The application utilizes the Google Firebase real-time database as its central communication hub. Because the backend relies on Firestore's real-time listeners, the physical robot, the Open3D digital twin, and the mobile GUI remain highly synchronized.</p>
                                         </div>
                                     </div>
 
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 50%; min-width: 300px; order: 1;">
                                             <h3 style="font-size: 1.2em; margin-bottom: 0.5em;">Teleoperation</h3>
-                                            <p style="margin-bottom: 0;">Operators can use the app to submit specific joint parameters, initialize autonomous picking routines, and wirelessly stream manual control inputs directly to the physical hardware. The dual-controller setup (PC for heavy spatial processing, Arduino for low-level stepper stepping) ensures smooth, physical executions.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">Operators can use the app to submit specific joint parameters, initialize autonomous picking routines, and wirelessly stream manual control inputs directly to the physical hardware. The dual-controller setup (PC for heavy spatial processing, Arduino for low-level stepper stepping) ensures smooth, physical executions.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <video autoplay loop muted playsinline style="width: 100%; height: auto; display: block; object-fit: cover; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
@@ -215,7 +215,7 @@
 								<h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">Ramindu Weniwelkola</h2>
 								<p style="font-size: 0.9em; line-height: 1.3; margin-bottom: 1em; font-weight: 600;">B.Sc. Eng (Hons) in Mechanical Engineering<br><span style="font-weight: 300; font-size: 0.9em;">Specialized in Mechatronics</span></p>
 								
-								<p style="font-size: 0.85em; line-height: 1.5; margin-bottom: 1em; text-align: left; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
+								<p style="font-size: 0.85em; line-height: 1.5; margin-bottom: 0em; text-align: left; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
 									<strong>Email:</strong> raminduw@uom.lk<br>
 									<strong>Phone:</strong> (+94) 772322298
 								</p>
