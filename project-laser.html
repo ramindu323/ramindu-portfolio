@@ -68,11 +68,11 @@
 										</video>
 									</span>
 
-									<p>The integration of consumer-grade optical sensors and motorized rotational platforms has democratized 3D point cloud acquisition, making it highly accessible. However, these low-cost, custom-built systems are highly susceptible to coupled mechanical misalignments. Even slight eccentricities or tilts can propagate through rotational calculations, causing severe systematic deformations in the final 3D model, such as structural skew and volumetric "coning" effects.</p>
+									<p style="text-align: justify;">The integration of consumer-grade optical sensors and motorized rotational platforms has expanded the accessibility of 3D point cloud acquisition.  However, these accessible systems are highly susceptible to coupled mechanical misalignments, which manifest as geometric distortions such as structural skew and volumetric cone shaping effects.</p>
                                     
-                                    <p>To overcome these physical limitations without requiring expensive precision manufacturing, we developed a novel closed-loop, five-parameter kinematic calibration framework. This system utilizes Meta-Heuristic Optimization to estimate and correct structural assembly tolerances entirely through software.</p>
+                                    <p style="text-align: justify;">To overcome these physical limitations without requiring expensive precision manufacturing, we developed a novel closed-loop, five-parameter kinematic calibration framework. This system utilizes Meta-Heuristic Optimization to estimate and correct structural assembly tolerances entirely through software.</p>
 
-									<p>Building upon this calibrated foundation, we introduced an inclined plate architecture to reduce the severe line-of-sight occlusions inherent to standard single-axis scanning. By systematically capturing and aligning redundant point cloud data across four distinct rotational passes, the system successfully reconstructs complex, hidden topologies. My ongoing work focuses on refining this multi-pass registration process to handle complex geometric structures.</p>
+									<p style="text-align: justify;">Building upon this calibrated foundation, we introduced an inclined plate architecture to reduce the severe line-of-sight occlusions inherent to standard single-axis scanning. By systematically capturing and aligning redundant point cloud data across four distinct rotational passes, the system successfully reconstructs complex, hidden topologies. My ongoing work focuses on refining this multi-pass registration process to handle complex geometric structures.</p>
 									
 									<hr class="major" />
 
@@ -83,15 +83,15 @@
                                             <img src="imgs_laser/prototype.jpg" alt="Hardware Prototype" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 1em;">The scanner's hardware architecture relies on affordable, off-the-shelf components. The optical acquisition module consists of a 1-Megapixel USB camera and a 5 mW (650 nm) continuous-wave line laser, mounted in a portrait orientation to maximize the vertical scanning volume.</p>
-                                            <p style="margin-bottom: 0;">The rotational platform is driven by a geared stepper motor coupled with a TMC2209 driver to ensure vibration-free angular steps. A 3D-printed geometric primitive (a small cuboid) is temporarily placed on the turntable to act as a target for the self-calibration phase.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">The scanner's hardware architecture relies on affordable, off-the-shelf components. The optical acquisition module consists of a 1-Megapixel USB camera and a 5 mW (650 nm) continuous-wave line laser, mounted in a portrait orientation to maximize the vertical scanning volume.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">The rotational platform is driven by a geared stepper motor coupled with a TMC2209 driver to ensure vibration-free angular steps. A 3D-printed geometric primitive (a small cuboid) is temporarily placed on the turntable to act as a target for the self-calibration phase.</p>
                                         </div>
                                     </div>
 
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 35%; min-width: 300px; order: 1;">
-                                            <p style="margin-bottom: 1em;">A dual-controller setup manages the workflow. A main workstation (PC) handles the heavy spatial processing, kinematic calculations, and optimization algorithms.</p>
-                                            <p style="margin-bottom: 0;">Simultaneously, an Arduino Nano microcontroller acts as the low-level firmware. It parses serial commands from the PC to execute precise stepper motor rotations and synchronize the high-speed transistor switching of the line laser.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">A dual-controller setup manages the workflow. A main workstation (PC) handles the heavy spatial processing, kinematic calculations, and optimization algorithms.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">Simultaneously, an Arduino Nano microcontroller acts as the low-level firmware. It parses serial commands from the PC to execute precise stepper motor rotations and synchronize the high-speed transistor switching of the line laser.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <img src="imgs_laser/architecture.jpg" alt="Control Architecture" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
