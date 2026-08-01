@@ -68,9 +68,9 @@
 										</video>
 									</span>
 
-                                    <p>Accessing confined and restricted spaces—such as storage tanks, process vessels, and aircraft wings—presents significant safety hazards and operational challenges for human workers due to limited entry points and poor ventilation. To address these challenges, we developed <strong>VORAC</strong>: a modular redundant robotic manipulator tailored to navigate unstructured, tight environments.</p> 
+                                    <p>Accessing confined and restricted spaces such as storage tanks, process vessels, and aircraft wings presents significant safety hazards and operational challenges for human workers due to limited entry points and poor ventilation. To address these challenges, we developed <strong>VORAC</strong>: a vision based modular redundant robotic manipulator tailored access confined spaces.</p> 
                                     
-                                    <p>Unlike traditional drone or crawler systems, VORAC is designed to provide high precision, repeatability, and extended operational periods. Crucially, the system features a unique internal tubular access path, allowing operators to safely deliver necessary utilities—such as cleaning water jets, maintenance welding torches, or inspection tools—directly from the base to the end-effector (EE) inside the confined space.</p>
+                                    <p>The system features a unique internal tubular access path, allowing operators to safely deliver necessary utilities—such as cleaning water jets, maintenance welding torches, or inspection tools—directly from the base to the end-effector (EE) inside the confined space.</p>
 
                                     <hr class="major" />
 
@@ -86,7 +86,7 @@
                                         <img src="imgs_int/vorac_act_comps.png" alt="Hollow Rotary Actuator Components" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
 
-                                    <p>To actuate the modular links without obstructing the internal passageway, custom hollow rotary actuators were engineered. These mechanisms utilize planetary geared stepper motors integrated with thin-section deep-groove ball bearings. This specific bearing choice allowed the system to handle multi-directional loads while keeping mass minimal. The fixed base utilizes a prismatic joint driven by a lead screw and stepper motor set on parallel guide rails to smoothly translate the entire manipulator into the workspace.</p>
+                                    <p>To actuate the modular links without obstructing the internal passageway, custom hollow rotary actuators were engineered. These mechanisms utilize planetary geared stepper motors integrated with thin-section deep-groove ball bearings. The fixed base utilizes a prismatic joint driven by a lead screw and stepper motor set on parallel guide rails to smoothly translate the entire manipulator into the workspace.</p>
 
                                     <hr class="major" style="clear: both;" />
 
@@ -103,13 +103,13 @@
                                         <li>Five Oblique Swivel (OS) joints, which are rotational joints set at a 45-degree inclined angle with alternating orientations to produce complex twisting motions.</li>
                                     </ul>
 
-                                    <p>Due to the constrained nature of the environment, computing the inverse kinematics (determining how to angle each joint to reach a target) requires collision avoidance. To achieve this, the system relies on a Particle Swarm Optimization (PSO) based path planning algorithm. The algorithm computes the required joint sequences by optimizing the manipulator's shape to fit along a safe, predetermined Bezier curve. During operation, the OS joints are strategically kept inactive until they have fully passed through the narrow entry point to prevent structural collisions.</p>
+                                    <p>To achieve collision navigation in confined spaces, the system relies on a Particle Swarm Optimization (PSO) based path planning algorithm. The algorithm computes the required joint sequences by optimizing the manipulator's shape to fit along a safe, predetermined Bezier curve. During operation, the OS joints are strategically kept inactive until they have fully passed through the narrow entry point to prevent structural collisions.</p>
 
                                     <hr class="major" />
 
                                     <h2>Vision System & Environmental Perception</h2>
                                     
-                                    <p>Navigation relies heavily on environmental perception, achieved through an RGB-D (depth) camera mounted directly at the end-effector. This allows the robot to acquire dense 3D point cloud data even in poorly lit environments. To guide the path planning algorithms, two specific vision-based geometric modeling pipelines were developed:</p>
+                                    <p>Vision based feature extraction for autonomous navigation is achieved through an RGB-D (depth) camera mounted at the end-effector. To guide the path planning algorithms, two specific vision-based geometric modeling pipelines were developed:</p>
 
                                     <h3 style="margin-top: 1.5em;">1. Circular Opening Detection Methodology</h3>
                                     <span class="image fit" style="margin-bottom: 1.5em;">
@@ -124,7 +124,7 @@
                                         <img src="imgs_int/vorac_pipe_bend_pipeline.png" alt="Pipe Bend Pipeline Reconstruction" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
                                     <ul>
-                                        <li><strong>Pipe Bend Geometric Modeling:</strong> Used to navigate curved tubular ducts. A PSO-based algorithm fits a sequence of geometric units to the acquired point cloud to recreate the internal geometry of the pipe.</li>
+                                        <li><strong>Pipe Bend Geometric Modeling:</strong> Used to navigate curved tubular ducts. A PSO-based algorithm fits a sequence of modular geometric units to the acquired point cloud to recreate the internal geometry of the pipe.</li>
                                     </ul>
 
                                     <h3 style="margin-top: 1.5em;">3. Feature Extraction Results</h3>
