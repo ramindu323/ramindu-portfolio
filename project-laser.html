@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Laser Scanner Project - Ramindu Weniwelkola</title>
+		<title>Laser Scanner Project - K.T.R.J. Weniwelkola</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -107,7 +107,7 @@
                                             <img src="imgs_laser/laser_threshold.jpg" alt="Differential Optical Capture" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 0;">Consumer-grade lasers and cameras are highly susceptible to ambient light noise. To extract a clean laser profile, the system executes a differential optical capture. At every rotational step, the microcontroller captures an ambient frame (laser off) and an active frame (laser on). By performing pixel-wise image subtraction and applying a binary intensity threshold, the ambient background is completely neutralized, isolating a distinct 2D pixel profile of the laser line regardless of the object's surface texture.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">Consumer-grade lasers and cameras are highly susceptible to ambient light noise. To extract a clean laser profile, the system executes a differential optical capture. At every rotational step, the microcontroller captures an ambient frame (laser off) and an active frame (laser on). By performing pixel-wise image subtraction and applying a binary intensity threshold, the ambient background is completely neutralized, isolating a distinct 2D pixel profile of the laser line regardless of the object's surface texture.</p>
                                         </div>
                                     </div>
 
@@ -117,8 +117,8 @@
                                     
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 35%; min-width: 300px; order: 1;">
-                                            <p style="margin-bottom: 1em;">To map the 2D laser pixels into a 3D coordinate space, a mathematical framework is required to transform points from the Camera Coordinate Frame to the Turntable Frame.</p>
-                                            <p style="margin-bottom: 0;">To account for the inevitable mechanical assembly tolerances, we derived a comprehensive kinematic model containing five extrinsic parameters: Lateral Eccentricity (<i>X<sub>t</sub></i>), Orthogonal Depth Offset (<i>Z<sub>t</sub></i>), Laser Triangulation Yaw (<i>&alpha;<sub>l</sub></i>), Camera Pitch (<i>&beta;<sub>c</sub></i>), and Laser Plumb Tilt (<i>&beta;<sub>l</sub></i>). Through trigonometric transformations, this model corrects coupled angular tilts and translational eccentricities dynamically during rotation.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">To map the 2D laser pixels into a 3D coordinate space, a mathematical framework is required to transform points from the Camera Coordinate Frame to the Turntable Frame.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">To account for the inevitable mechanical assembly tolerances, we derived a comprehensive kinematic model containing five extrinsic parameters: Lateral Eccentricity (<i>X<sub>t</sub></i>), Orthogonal Depth Offset (<i>Z<sub>t</sub></i>), Laser Triangulation Yaw (<i>&alpha;<sub>l</sub></i>), Camera Pitch (<i>&beta;<sub>c</sub></i>), and Laser Plumb Tilt (<i>&beta;<sub>l</sub></i>). Through trigonometric transformations, this model corrects coupled angular tilts and translational eccentricities dynamically during rotation.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 40%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <img src="imgs_laser/parameters.jpg" alt="Kinematic Error Parameters" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
@@ -134,8 +134,8 @@
                                             <img src="imgs_laser/swarm_anchors.jpg" alt="Kinematic Anchors and Optimization" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                         <div style="flex: 1 1 50%; min-width: 300px;">
-                                            <p style="margin-bottom: 1em;">Gradient-descent algorithms often fail and stagnate in local minima when dealing with highly coupled rotational parameters. Therefore, we utilized Particle Swarm Optimization (PSO) to ensure robust global convergence.</p>
-                                            <p style="margin-bottom: 0;">However, evaluating dense point clouds is computationally expensive. To solve this, the system first applies Statistical Outlier Removal (SOR) to filter noise, and then deterministically downsamples the 3D data into a sparse set of approximately 200 "Kinematic Anchors". The PSO algorithm rapidly iterates over these anchors, seeking the optimal 5-parameter vector that minimizes the mean squared error (MSE) against the known ideal dimensions of the 3D-printed calibration cuboid.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">Gradient-descent algorithms often fail and stagnate in local minima when dealing with highly coupled rotational parameters. Therefore, we utilized Particle Swarm Optimization (PSO) to ensure robust global convergence.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">However, evaluating dense point clouds is computationally expensive. To solve this, the system first applies Statistical Outlier Removal (SOR) to filter noise, and then deterministically downsamples the 3D data into a sparse set of approximately 200 "Kinematic Anchors". The PSO algorithm rapidly iterates over these anchors, seeking the optimal 5-parameter vector that minimizes the mean squared error (MSE) against the known ideal dimensions of the 3D-printed calibration cuboid.</p>
                                         </div>
                                     </div>
 
@@ -143,7 +143,7 @@
 
 									<h2>Geometric Validation & Final Results</h2>
                                     
-                                    <p>The calibrated framework successfully neutralized the complex mechanical tolerances of the DIY scanner setup. Qualitative evaluations confirmed the systematic elimination of structural skew and coning deformations, successfully recovering the orthogonal planar faces and parallel geometries of the targets.</p>
+                                    <p style="text-align: justify;">The calibrated framework successfully neutralized the complex mechanical tolerances of the DIY scanner setup. Qualitative evaluations confirmed the systematic elimination of structural skew and coning deformations, successfully recovering the orthogonal planar faces and parallel geometries of the targets.</p>
 
                                     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; margin-bottom: 2em;">
                                         <span class="image" style="flex: 1 1 45%; margin-bottom: 0; display: flex;">
@@ -154,7 +154,7 @@
                                         </span>
                                     </div>
 
-                                    <p>To quantitatively validate the system's precision, a multi-layer sliced geometric evaluation was performed on three standard PVC cylinders of known diameters. The results demonstrated that the software-driven calibration framework achieves industrial-grade, sub-millimeter volumetric accuracy, validating it as a highly accessible pathway for robust 3D digitization.</p>
+                                    <p style="text-align: justify;">To quantitatively validate the system's precision, a multi-layer sliced geometric evaluation was performed on three standard PVC cylinders of known diameters. The results demonstrated that the software-driven calibration framework achieves industrial-grade, sub-millimeter volumetric accuracy, validating it as a highly accessible pathway for robust 3D digitization.</p>
 
                                     <hr class="major" />
 
@@ -162,15 +162,15 @@
                                     
                                     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2em; margin-bottom: 2em;">
                                         <div style="flex: 1 1 35%; min-width: 300px; order: 1;">
-                                            <p style="margin-bottom: 1em;">Building upon the foundational kinematic framework, subsequent development focused on resolving geometric occlusions inherent to single-axis rotational scanners. Complex object topologies frequently suffer from line-of-sight shadowing during a standard 360-degree sweep, resulting in incomplete point cloud generation and missing structural data.</p>
-                                            <p style="margin-bottom: 0;">To address this limitation, an automated multi-pass scanning strategy was implemented utilizing a custom inclined plate rotational mechanism. This configuration introduces a secondary rotational axis (&psi;), enabling the extraction of structural data from diverse vantage points. By systematically altering the object's orientation on the turntable, the system successfully bypasses optical occlusions to capture hidden geometries.</p>
+                                            <p style="margin-bottom: 1em; text-align: justify;">Building upon the foundational kinematic framework, subsequent development focused on resolving geometric occlusions inherent to single-axis rotational scanners. Complex object topologies frequently suffer from line-of-sight shadowing during a standard 360-degree sweep, resulting in incomplete point cloud generation and missing structural data.</p>
+                                            <p style="margin-bottom: 0; text-align: justify;">To address this limitation, an automated multi-pass scanning strategy was implemented utilizing a custom inclined plate rotational mechanism. This configuration introduces a secondary rotational axis (&psi;), enabling the extraction of structural data from diverse vantage points. By systematically altering the object's orientation on the turntable, the system successfully bypasses optical occlusions to capture hidden geometries.</p>
                                         </div>
                                         <span class="image" style="flex: 1 1 45%; min-width: 250px; margin-bottom: 0; order: 2;">
                                             <img src="imgs_laser/inc_config.jpg" alt="Inclined Plate Configuration" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
                                         </span>
                                     </div>
 
-                                    <p>The multi-pass data acquisition process executes sequential scans at 90-degree increments (&psi; = 0&deg;, 90&deg;, 180&deg;, 270&deg;). An angle-aware point cloud registration algorithm precisely aligns these redundant datasets, effectively reconstructing complex, occluded topologies that would otherwise be lost to sensor shadowing.</p>
+                                    <p style="text-align: justify;">The multi-pass data acquisition process executes sequential scans at 90-degree increments (&psi; = 0&deg;, 90&deg;, 180&deg;, 270&deg;). An angle-aware point cloud registration algorithm precisely aligns these redundant datasets, effectively reconstructing complex, occluded topologies that would otherwise be lost to sensor shadowing.</p>
 
                                     <span class="image main" style="margin-bottom: 2em;">
                                         <img src="imgs_laser/inc_com_result.jpg" alt="Combined Multi-Pass Scan Results" style="width: 100%; border-radius: 0.3em; box-shadow: 0 4px 8px rgba(0,0,0,0.05);" />
@@ -185,13 +185,13 @@
 						<div class="inner">
 
 							<section id="profile" style="text-align: center; padding: 0.5em 0 1em 0;">
-								<img src="images/ME.jpeg" alt="Ramindu Weniwelkola" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; display: block; margin: 0 auto 1.5em auto; border: 3px solid #f56a6a;" />
+								<img src="images/ME.jpeg" alt="K.T.R.J. Weniwelkola" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; display: block; margin: 0 auto 1.5em auto; border: 3px solid #f56a6a;" />
 								
-								<h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">Ramindu Weniwelkola</h2>
+								<h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">K.T.R.J. Weniwelkola</h2>
 								<p style="font-size: 0.9em; line-height: 1.3; margin-bottom: 1em; font-weight: 600;">B.Sc. Eng (Hons) in Mechanical Engineering<br><span style="font-weight: 300; font-size: 0.9em;">Specialized in Mechatronics</span></p>
 								
 								<p style="font-size: 0.85em; line-height: 1.5; margin-bottom: 0em; text-align: left; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
-									<strong>Email:</strong> raminduw@uom.lk<br>
+									<strong>Email:</strong> K.T.R.J.w@uom.lk<br>
 									<strong>Phone:</strong> (+94) 772322298
 								</p>
 							
@@ -211,7 +211,7 @@
 							</section>
 
 							<footer id="footer">
-									<p class="copyright">&copy; Ramindu Weniwelkola. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+									<p class="copyright">&copy; K.T.R.J. Weniwelkola. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 							</footer>
 
 						</div>
