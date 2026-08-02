@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>VORAC Project - Ramindu Weniwelkola</title>
+        <title>VORAC Project - K.T.R.J. Weniwelkola</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
@@ -68,9 +68,9 @@
 										</video>
 									</span>
 
-                                    <p>Accessing confined and restricted spaces such as storage tanks, process vessels, and aircraft wings presents significant safety hazards and operational challenges for human workers due to limited entry points and poor ventilation. To address these challenges, we developed <strong>VORAC</strong>: a vision based modular redundant robotic manipulator tailored access confined spaces.</p> 
+                                    <p style="text-align: justify;">Accessing confined and restricted spaces such as storage tanks, process vessels, and aircraft wings presents significant safety hazards and operational challenges for human workers due to limited entry points and poor ventilation. To address these challenges, we developed <strong>VORAC</strong>: a vision based modular redundant robotic manipulator tailored access confined spaces.</p> 
                                     
-                                    <p>The system features a unique internal tubular access path, allowing operators to safely deliver necessary utilities such as cleaning water jets, maintenance welding torches, or inspection tools directly from the base to the end-effector (EE) inside the confined space.</p>
+                                    <p style="text-align: justify;">The system features a unique internal tubular access path, allowing operators to safely deliver necessary utilities such as cleaning water jets, maintenance welding torches, or inspection tools directly from the base to the end-effector (EE) inside the confined space.</p>
 
                                     <hr class="major" />
 
@@ -80,13 +80,13 @@
                                         <img src="imgs_int/vorac_parts.png" alt="VORAC Hardware Nomenclature" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
 
-                                    <p>The VORAC manipulator was built as a reconfigurable, modular system. The prototype was developed to have an approximate reach of 1 meter and an inner access path diameter of 30 mm to accommodate various payload utilities, while maintaining a slim outer profile of less than 10 cm. The structural links were fabricated from 1 mm laser-cut aluminum sheets folded into irregular pentagon cross-sections to ensure a lightweight but robust assembly capable of handling a 500 g payload at the end-effector.</p>
+                                    <p style="text-align: justify;">The VORAC manipulator was built as a reconfigurable, modular system. The prototype was developed to have an approximate reach of 1 meter and an inner access path diameter of 30 mm to accommodate various payload utilities, while maintaining a slim outer profile of less than 10 cm. The structural links were fabricated from 1 mm laser-cut aluminum sheets folded into irregular pentagon cross-sections to ensure a lightweight but robust assembly capable of handling a 500 g payload at the end-effector.</p>
                                     
                                     <span class="image right" style="max-width: 62%; margin-left: 2em;">
                                         <img src="imgs_int/vorac_act_comps.png" alt="Hollow Rotary Actuator Components" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
 
-                                    <p>To actuate the modular links without obstructing the internal passageway, custom hollow rotary actuators were engineered. These mechanisms utilize planetary geared stepper motors integrated with thin-section deep-groove ball bearings. The fixed base utilizes a prismatic joint driven by a lead screw and stepper motor set on parallel guide rails to smoothly translate the entire manipulator into the workspace.</p>
+                                    <p style="text-align: justify;">To actuate the modular links without obstructing the internal passageway, custom hollow rotary actuators were engineered. These mechanisms utilize planetary geared stepper motors integrated with thin-section deep-groove ball bearings. The fixed base utilizes a prismatic joint driven by a lead screw and stepper motor set on parallel guide rails to smoothly translate the entire manipulator into the workspace.</p>
 
                                     <hr class="major" style="clear: both;" />
 
@@ -96,20 +96,20 @@
                                         <img src="imgs_int/vorac_kinematics.png" alt="VORAC Kinematic Configuration" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
 
-                                    <p>The manipulator features a 7 Degree-of-Freedom (DOF) configuration, designed specifically to maneuver through highly constrained entry points. The kinematic chain consists of:</p>
+                                    <p style="text-align: justify;">The manipulator features a 7 Degree-of-Freedom (DOF) configuration, designed specifically to maneuver through highly constrained entry points. The kinematic chain consists of:</p>
                                     <ul>
                                         <li>One prismatic joint that translates the robot straight into the confined space.</li>
                                         <li>One initial twisting joint.</li>
                                         <li>Five Oblique Swivel (OS) joints, which are rotational joints set at a 45-degree inclined angle with alternating orientations to produce complex twisting motions.</li>
                                     </ul>
 
-                                    <p>To achieve collision free navigation in confined spaces, the system relies on a Particle Swarm Optimization (PSO) based path planning algorithm. The algorithm computes the required joint sequences by optimizing the manipulator's shape to fit along a safe, predetermined Bezier curve. During operation, the OS joints are strategically kept inactive until they have fully passed through the narrow entry point to prevent structural collisions.</p>
+                                    <p style="text-align: justify;">To achieve collision free navigation in confined spaces, the system relies on a Particle Swarm Optimization (PSO) based path planning algorithm. The algorithm computes the required joint sequences by optimizing the manipulator's shape to fit along a safe, predetermined Bezier curve. During operation, the OS joints are strategically kept inactive until they have fully passed through the narrow entry point to prevent structural collisions.</p>
 
                                     <hr class="major" />
 
                                     <h2>Vision System & Environmental Perception</h2>
                                     
-                                    <p>Vision based feature extraction for autonomous navigation is achieved through an RGB-D (depth) camera mounted at the end-effector. To guide the path planning algorithms, two specific vision-based geometric modeling pipelines were developed:</p>
+                                    <p style="text-align: justify;">Vision based feature extraction for autonomous navigation is achieved through an RGB-D (depth) camera mounted at the end-effector. To guide the path planning algorithms, two specific vision-based geometric modeling pipelines were developed:</p>
 
                                     <h3 style="margin-top: 1.5em;">1. Circular Opening Detection Methodology</h3>
                                     <span class="image fit" style="margin-bottom: 1.5em;">
@@ -131,7 +131,7 @@
                                     <span class="image fit" style="margin-bottom: 1.5em;">
                                         <img src="imgs_int/vorac_pcd_pross_results.png" alt="Vision Pipeline Results" style="border-radius: 0.3em; border: 1px solid #efefef;" />
                                     </span>
-                                    <p>Tests showed the circular opening algorithm computes the mean radius with an average accuracy of 94%. Experimental validation across varying bend conditions demonstrated highly accurate modeling with only a 1-2% Mean Absolute Percentage Error (MAPE).</p>
+                                    <p style="text-align: justify;">Tests showed the circular opening algorithm computes the mean radius with an average accuracy of 94%. Experimental validation across varying bend conditions demonstrated highly accurate modeling with only a 1-2% Mean Absolute Percentage Error (MAPE).</p>
 
                                     <hr class="major" />
 
@@ -142,9 +142,9 @@
                                         <img src="imgs_int/vorac_control_architecture.png" alt="VORAC Dual Control Architecture" style="border-radius: 0.3em; border: 1px solid #efefef; max-width: 80%;" />
                                     </span>
 
-                                    <p>The system utilizes a dual-controller hierarchy to manage the complex computational loads. A PC acts as the high-level controller, processing point cloud data from the depth camera, calculating the PSO path planning, and providing a Graphical User Interface (GUI) where operators can simulate the planned motion before execution. An Arduino Mega serves as the low-level controller, receiving serial commands from the PC to drive the individual actuators. The robot supports fully autonomous vision-based navigation, semi-autonomous sequential waypoint navigation, and direct manual control.</p>
+                                    <p style="text-align: justify;">The system utilizes a dual-controller hierarchy to manage the complex computational loads. A PC acts as the high-level controller, processing point cloud data from the depth camera, calculating the PSO path planning, and providing a Graphical User Interface (GUI) where operators can simulate the planned motion before execution. An Arduino Mega serves as the low-level controller, receiving serial commands from the PC to drive the individual actuators. The robot supports fully autonomous vision-based navigation, semi-autonomous sequential waypoint navigation, and direct manual control.</p>
 
-                                    <p>During final experimental validation, the end-to-end vision and navigation pipeline was tested on the physical prototype in an emulated confined space. The system successfully tracked its reference spline trajectory with an average end-effector deviation of just 0.72 cm in simulation, and 2.24 cm during live physical execution.</p>
+                                    <p style="text-align: justify;">During final experimental validation, the end-to-end vision and navigation pipeline was tested on the physical prototype in an emulated confined space. The system successfully tracked its reference spline trajectory with an average end-effector deviation of just 0.72 cm in simulation, and 2.24 cm during live physical execution.</p>
 
                                     <h3 style="margin-top: 2em;">Final Results & Demonstration</h3>
                                     <span class="image main" style="margin-top: 1em;">
@@ -163,13 +163,13 @@
                         <div class="inner">
 
                             <section id="profile" style="text-align: center; padding: 0.5em 0 1em 0;">
-                                <img src="images/ME.jpeg" alt="Ramindu Weniwelkola" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; display: block; margin: 0 auto 1.5em auto; border: 3px solid #f56a6a;" />
+                                <img src="images/ME.jpeg" alt="K.T.R.J. Weniwelkola" style="border-radius: 50%; width: 140px; height: 140px; object-fit: cover; display: block; margin: 0 auto 1.5em auto; border: 3px solid #f56a6a;" />
                                 
-                                <h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">Ramindu Weniwelkola</h2>
+                                <h2 style="font-size: 1.4em; margin-bottom: 0.2em; color: #3d4449;">K.T.R.J. Weniwelkola</h2>
                                 <p style="font-size: 0.9em; line-height: 1.3; margin-bottom: 1em; font-weight: 600;">B.Sc. Eng (Hons) in Mechanical Engineering<br><span style="font-weight: 300; font-size: 0.9em;">Specialized in Mechatronics</span></p>
                                 
                                 <p style="font-size: 0.85em; line-height: 1.5; margin-bottom: 0em; text-align: left; border-bottom: 1px solid #efefef; padding-bottom: 1em;">
-                                    <strong>Email:</strong> raminduw@uom.lk<br>
+                                    <strong>Email:</strong> K.T.R.J.w@uom.lk<br>
                                     <strong>Phone:</strong> (+94) 772322298
                                 </p>
                             
@@ -189,7 +189,7 @@
                             </section>
 
                             <footer id="footer">
-                                    <p class="copyright">&copy; Ramindu Weniwelkola. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                                    <p class="copyright">&copy; K.T.R.J. Weniwelkola. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
                             </footer>
 
                         </div>
